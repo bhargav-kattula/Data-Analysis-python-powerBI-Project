@@ -5,7 +5,7 @@ data=pd.read_csv('diabetes.csv')
 ''' so, to find the details of the dataset.we are using head() function to get n rows of dataset.if we dont give n value, by default it will take first 5 rows.'''
 data.head()
 
-'''To know about no.of columns and rows the dataset is containing we use info() function. there are 7 columns and 764 rows present'''
+'''To know about no.of columns and rows the dataset is containing we use info() function. there are 9 columns and 764 rows present'''
 data.info()
 
 ''' to get mean,std,min values describe() function is used'''

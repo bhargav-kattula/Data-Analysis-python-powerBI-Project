@@ -1,0 +1,56 @@
+import pandas as pd
+
+data=pd.read_csv('diabetes.csv')
+
+''' so, to find the details of the dataset.we are using head() function to get n rows of dataset.if we dont give n value, by default it will take first 5 rows.'''
+data.head()
+
+'''To know about no.of columns and rows the dataset is containing we use info() function. there are 7 columns and 764 rows present'''
+data.info()
+
+''' to get mean,std,min values describe() function is used'''
+data.describe()
+
+'''min values for Glucose,Blood pressure,Skin thickness,insulin,BMI is 0. but these values cannot be 0 for any person.so this indicates there a 0 values present in these columns. now we will get to know how many 0 values are present in these 5 columns'''
+data_cols=['Glucose','BloodPressure','SkinThickness','Insulin','BMI']
+(data[data_cols]==0).sum()
+'''the above shows the count of 0 values present in columns. now we will see the count of null vales'''
+
+data.isnull().sum()
+
+'''The above shows 0 null values for every columns. this is because of the null values are represented by nan. but in the dataset we are having 0 instead of nan thats why its showing there are no null values present. for this purpose we have to import nan from numpy to convert 0 values to nan.'''
+from numpy import nan
+
+'''Now, we will replace 0 values in 5 columns with nan'''
+data[data_cols]=data[data_cols].replace(0,nan)
+
+'''we will check that athe 0 values are replaced by nan by isnull() function by counting
+data.isnull().sum()
+'''as we can see all the null values being detected. now we will see first 20 rows to check nan values
+data.head(20)
+
+'''deleting nan values in glucose,bloodpressure,bmi because there are very less number of null values'''
+
+data=data.dropna(subset=['Glucose','BloodPressure','BMI'])
+data.isnull().sum()
+
+'''replacing missing values in skinthickness,insulin because these columns are having hhuge number of missing values.so its better to replace rather than deleting'''
+mean_val=data['Insulin'].mean()
+print(mean_val)
+
+#let,replace this missing values in insulin column with mean value by using fillna() function
+
+data['Insulin'].fillna(mean_val,inplace=True)
+
+'''now we have to check any missing values in dataset.you will see insulin column has no null values'''
+
+data.isnull().sum()
+
+#now,to replace skin thickness columns missing value we will use interpolate function
+
+data['SkinThickness'].interpolate(inplace=True)
+
+'''Finally we have to check if there are any missing values in the dataset
+data.isnull().sum()
+'''its detected that there are no missing values in the entire dataset and its cleaned and ready to use for analysis purpose and draw insights from it'''
+

@@ -54,3 +54,17 @@ data['SkinThickness'].interpolate(inplace=True)
 data.isnull().sum()
 '''its detected that there are no missing values in the entire dataset and its cleaned and ready to use for analysis purpose and draw insights from it'''
 
+'''creating Age group category'''
+data['Age Group'] = pd.cut(data['Age'], bins=[ 20, 30, 40, 50,60, float('inf')], labels=['20-30', '30-40', '40-50', '50-60',60+'])
+
+'''creating BMI category'''
+data['Age Group'] = pd.cut(data['BMI'], bins=[0, 18, 25, 30,35 float('inf')], labels=['Underweight', 'Normal', 'Over Weight', 'Obese'])
+
+'''creating BMI category'''
+data['BMI category'] = pd.cut(data['BMI'], bins=[0, 18, 25, 30 ,float('inf')], labels=['Underweight', 'Normal', 'Over Weight', 'Obese',]
+
+'''It will give pivot table of mean glucose value to age group'''
+age_group_mean_glucose = data.groupby('Age Group')['Glucose'].mean()
+
+''''finally the dataframe is saved in local machine'''
+data.to_csv('diabeteddata.csv')

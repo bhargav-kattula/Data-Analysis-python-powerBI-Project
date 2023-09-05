@@ -7,7 +7,7 @@ data.head()
 
 '''To know about no.of columns and rows the dataset is containing we use info() function. there are 9 columns and 764 rows present'''
 data.info()
-
+ 
 ''' to get mean,std,min values describe() function is used'''
 data.describe()
 

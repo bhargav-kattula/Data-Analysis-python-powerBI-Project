@@ -1,4 +1,4 @@
-Diabetes insight Dashboard on Power BI 
+Diabetes Data Pre-Processing and visualization
 
 Power BI Dashboard:--- https://www.novypro.com/project/diabetes-data-insights-dashboard
 

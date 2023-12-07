@@ -1,4 +1,4 @@
-Diabetes Data Pre-Processing and visualization
+Diabetes Data Pre-Processing and visualization & Supply chain data analysis and visualization
 
 Diabetis data analysis Power BI Dashboard:--- https://www.novypro.com/project/diabetes-data-insights-dashboard
 
